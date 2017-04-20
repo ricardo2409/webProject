@@ -62,7 +62,7 @@ class RoutinesController < ApplicationController
   def destroy
     @routine.destroy
     respond_to do |format|
-      format.html { redirect_to routines_url, notice: 'Routine was successfully destroyed.' }
+      format.html { redirect_to trainee_routines_path(@trainee), notice: 'Routine was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
