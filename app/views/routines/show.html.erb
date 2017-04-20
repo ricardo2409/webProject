@@ -1,0 +1,21 @@
+<p>
+  <strong>Name:</strong>
+  <%= @routine.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @routine.description %>
+</p>
+
+<p>
+  <strong>Start date:</strong>
+  <%= @routine.start_date %>
+</p>
+
+<p>
+  <strong>End date:</strong>
+  <%= @routine.end_date %>
+</p>
+<%= link_to 'Edit', edit_trainee_routine_path(@routine) %> |
+<%= link_to 'Back', trainee_routines_path %>

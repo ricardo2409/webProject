@@ -1,0 +1,39 @@
+<%= image_tag 'gym_logo.png', style: 'height:100px;' %>
+<h1>Trainees</h1>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Full name</th>
+      <th>Notes</th>
+      <th>Trainer</th>
+      <th>End suscription</th>
+      <th colspan="4"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @trainees.each do |trainee| %>
+      <tr class="<%= 'danger' if trainee.end_suscription_date < Time.now %>">
+        <td><%= trainee.name %> <%= trainee.last_name %></td>
+        <td><%= trainee.notes %></td>
+        <td>
+          <% if trainee.trainer.present? %>
+            <%= trainee.trainer.name %> <%= trainee.trainer.last_name %>
+          <% else %>
+            <span class="text-danger">Trainer not assigned</span>
+          <% end %>
+        </td>
+        <th><%= trainee.end_suscription_date %></th>
+        <td><%= link_to 'Routines', trainee_routines_path(trainee), class: 'btn btn-success' %></td>
+        <td><%= link_to 'Show details', trainee, class: 'btn btn-default' %></td>
+        <td><%= link_to 'Edit', edit_trainee_path(trainee), class: 'btn btn-default' %></td>
+        <td><%= link_to 'Destroy', trainee, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Trainee', new_trainee_path, class: 'btn btn-primary' %>

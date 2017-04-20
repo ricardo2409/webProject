@@ -1,0 +1,26 @@
+<p>
+  <strong>Name:</strong>
+  <%= @trainee.name %>
+</p>
+
+<p>
+  <strong>Last name:</strong>
+  <%= @trainee.last_name %>
+</p>
+
+<p>
+  <strong>Notes:</strong>
+  <%= @trainee.notes %>
+</p>
+
+<p>
+  <strong>Trainer:</strong>
+  <% if @trainee.trainer.present? %>
+  	<%= @trainee.trainer.name %> <%= @trainee.trainer.last_name %>
+  <% else %>
+    <span class="text-danger">Trainer not assigned</span>
+  <% end %>
+</p>
+
+<%= link_to 'Edit', edit_trainee_path(@trainee) %> |
+<%= link_to 'Back', trainees_path %>
