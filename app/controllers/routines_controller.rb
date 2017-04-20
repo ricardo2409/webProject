@@ -61,6 +61,7 @@ class RoutinesController < ApplicationController
   # DELETE /routines/1.json
   def destroy
     @routine.destroy
+    @trainee = Trainee.find(params[:trainee_id])
     respond_to do |format|
       format.html { redirect_to trainee_routines_path(@trainee), notice: 'Routine was successfully destroyed.' }
       format.json { head :no_content }
